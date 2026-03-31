@@ -6,6 +6,7 @@
       <FeaturesSection />
       <ShowcaseSection />
       <IntegrationsSection />
+      <ComparisonSection />
       <PricingSection />
       <NewsletterSection />
     </main>

@@ -32,10 +32,11 @@ export async function ensureWaitlistTable() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `
-  // Add columns if upgrading from old schema without ip/country
+  // Add columns if upgrading from old schema
   await sql`
     ALTER TABLE waitlist
       ADD COLUMN IF NOT EXISTS ip TEXT,
-      ADD COLUMN IF NOT EXISTS country TEXT
+      ADD COLUMN IF NOT EXISTS country TEXT,
+      ADD COLUMN IF NOT EXISTS source TEXT
   `
 }

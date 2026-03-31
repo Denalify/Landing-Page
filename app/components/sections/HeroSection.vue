@@ -68,7 +68,7 @@
             height="500"
           />
           <!-- Floating badge: Integrations -->
-          <div class="absolute -bottom-4 -left-4 z-20 glass-card backdrop-blur-md px-4 py-3 items-center gap-2.5 shadow-xl hidden sm:flex">
+          <div class="absolute -bottom-4 -left-4 z-20 glass-card px-4 py-3 flex items-center gap-2.5 shadow-xl hidden sm:flex">
             <div class="w-8 h-8 rounded-lg bg-[rgba(0,217,255,0.15)] flex items-center justify-center">
               <svg class="w-4 h-4 text-[#00d9ff]" viewBox="0 0 20 20" fill="none">
                 <path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 3v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -80,7 +80,7 @@
             </div>
           </div>
           <!-- Floating badge: Teams -->
-          <div class="absolute -top-4 -right-4 z-20 glass-card backdrop-blur-md px-4 py-3 items-center gap-2.5 shadow-xl hidden sm:flex">
+          <div class="absolute -top-4 -right-4 z-20 glass-card px-4 py-3 flex items-center gap-2.5 shadow-xl hidden sm:flex">
             <div class="w-8 h-8 rounded-lg bg-[rgba(59,130,246,0.15)] flex items-center justify-center">
               <svg class="w-4 h-4 text-[#3b82f6]" viewBox="0 0 20 20" fill="none">
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zm8 0a3 3 0 11-6 0 3 3 0 016 0zM1 17a7 7 0 0114 0M8 17a7 7 0 0114 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>

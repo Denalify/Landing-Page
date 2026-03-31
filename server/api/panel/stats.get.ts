@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
     totals,
     dailySignups,
     byCountry,
+    bySource,
     rows,
     countResult,
   ] = await Promise.all([
@@ -59,9 +60,19 @@ export default defineEventHandler(async (event) => {
       LIMIT 20
     `,
 
+    // By source
+    sql<{ source: string; count: string }[]>`
+      SELECT
+        COALESCE(source, 'Not specified') AS source,
+        COUNT(*)::TEXT                    AS count
+      FROM waitlist
+      GROUP BY source
+      ORDER BY COUNT(*) DESC
+    `,
+
     // Paginated subscriber list
-    sql<{ id: number; email: string; country: string | null; ip: string | null; created_at: string }[]>`
-      SELECT id, email, country, ip, created_at
+    sql<{ id: number; email: string; country: string | null; ip: string | null; source: string | null; created_at: string }[]>`
+      SELECT id, email, country, ip, source, created_at
       FROM waitlist
       ORDER BY created_at DESC
       LIMIT ${perPage} OFFSET ${offset}
@@ -82,6 +93,7 @@ export default defineEventHandler(async (event) => {
     },
     dailySignups: dailySignups.map(r => ({ date: r.date, count: Number(r.count) })),
     byCountry: byCountry.map(r => ({ country: r.country, count: Number(r.count) })),
+    bySource: bySource.map(r => ({ source: r.source, count: Number(r.count) })),
     subscribers: rows,
     pagination: {
       page,

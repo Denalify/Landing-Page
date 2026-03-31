@@ -27,7 +27,6 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-8">
-      <!-- Loading state -->
       <div v-if="pending" class="flex items-center justify-center py-32">
         <div class="w-8 h-8 border-2 border-[#00d9ff] border-t-transparent rounded-full animate-spin" />
       </div>
@@ -35,11 +34,7 @@
       <template v-else-if="stats">
         <!-- KPI cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <div
-            v-for="kpi in kpiCards"
-            :key="kpi.label"
-            class="glass-card p-5"
-          >
+          <div v-for="kpi in kpiCards" :key="kpi.label" class="glass-card p-5">
             <p class="text-[#8892a4] text-xs font-medium uppercase tracking-wider mb-2">{{ kpi.label }}</p>
             <p class="text-3xl font-bold" :class="kpi.color">{{ kpi.value.toLocaleString() }}</p>
             <p class="text-[#8892a4] text-xs mt-1">{{ kpi.sub }}</p>
@@ -47,7 +42,7 @@
         </div>
 
         <!-- Chart + Countries row -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
           <!-- Signups chart -->
           <div class="lg:col-span-2 glass-card p-6">
             <div class="flex items-center justify-between mb-6">
@@ -57,17 +52,11 @@
               </div>
               <span class="text-[#00d9ff] text-sm font-semibold">{{ stats.kpi.total.toLocaleString() }} total</span>
             </div>
-
-            <!-- SVG Chart -->
             <div class="relative">
               <svg viewBox="0 0 400 100" class="w-full h-28" preserveAspectRatio="none">
-                <!-- Grid lines -->
                 <line v-for="y in [20, 40, 60, 80]" :key="y" :y1="y" :y2="y" x1="0" x2="400" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-                <!-- Area fill -->
                 <path :d="areaPath" fill="url(#chartGrad)" opacity="0.6"/>
-                <!-- Line -->
                 <path :d="linePath" fill="none" stroke="#00d9ff" stroke-width="1.5" stroke-linejoin="round"/>
-                <!-- Gradient -->
                 <defs>
                   <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#00d9ff" stop-opacity="0.3"/>
@@ -75,7 +64,6 @@
                   </linearGradient>
                 </defs>
               </svg>
-              <!-- X-axis labels -->
               <div class="flex justify-between mt-1">
                 <span class="text-[#8892a4] text-[10px]">{{ stats.dailySignups[0]?.date.slice(5) }}</span>
                 <span class="text-[#8892a4] text-[10px]">{{ stats.dailySignups[14]?.date.slice(5) }}</span>
@@ -89,11 +77,7 @@
             <h2 class="text-[#f0f6ff] font-semibold mb-1">Top Countries</h2>
             <p class="text-[#8892a4] text-xs mb-5">By signup count</p>
             <div class="flex flex-col gap-3 overflow-y-auto max-h-48">
-              <div
-                v-for="c in stats.byCountry.slice(0, 10)"
-                :key="c.country"
-                class="flex items-center gap-3"
-              >
+              <div v-for="c in stats.byCountry.slice(0, 10)" :key="c.country" class="flex items-center gap-3">
                 <span class="text-xl leading-none shrink-0">{{ countryFlag(c.country) }}</span>
                 <div class="flex-1 min-w-0">
                   <div class="flex justify-between text-xs mb-1">
@@ -112,14 +96,39 @@
           </div>
         </div>
 
+        <!-- Source Breakdown -->
+        <div class="glass-card p-6 mb-6">
+          <h2 class="text-[#f0f6ff] font-semibold mb-1">Traffic Source</h2>
+          <p class="text-[#8892a4] text-xs mb-5">Where signups heard about Denalify</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div v-for="s in stats.bySource" :key="s.source" class="flex flex-col gap-2">
+              <div class="flex justify-between text-xs">
+                <span class="text-[#c8d3e0] font-medium truncate">{{ s.source }}</span>
+                <span class="text-[#8892a4] shrink-0 ml-2">{{ s.count }}</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-[rgba(255,255,255,0.06)] overflow-hidden">
+                <div
+                  class="h-full rounded-full bg-gradient-to-r from-[#3b82f6] to-[#00d9ff] transition-all duration-500"
+                  :style="{ width: `${(s.count / (stats.bySource[0]?.count || 1)) * 100}%` }"
+                />
+              </div>
+              <span class="text-[#8892a4] text-[10px]">
+                {{ stats.kpi.total > 0 ? Math.round((s.count / stats.kpi.total) * 100) : 0 }}%
+              </span>
+            </div>
+            <div v-if="!stats.bySource.length" class="col-span-4 text-[#8892a4] text-sm text-center py-4">
+              No source data yet.
+            </div>
+          </div>
+        </div>
+
         <!-- Subscribers table -->
         <div class="glass-card overflow-hidden">
-          <div class="px-6 py-4 border-b border-[rgba(0,217,255,0.08)] flex items-center justify-between">
+          <div class="px-6 py-4 border-b border-[rgba(0,217,255,0.08)] flex items-center justify-between flex-wrap gap-3">
             <div>
               <h2 class="text-[#f0f6ff] font-semibold">All Subscribers</h2>
               <p class="text-[#8892a4] text-xs mt-0.5">{{ stats.pagination.total.toLocaleString() }} total — page {{ stats.pagination.page }} of {{ stats.pagination.totalPages }}</p>
             </div>
-            <!-- Search/Export placeholder -->
             <div class="flex items-center gap-3">
               <input
                 v-model="search"
@@ -127,10 +136,7 @@
                 placeholder="Search email…"
                 class="bg-[rgba(255,255,255,0.05)] border border-[rgba(0,217,255,0.15)] rounded-lg px-3 py-1.5 text-xs text-[#f0f6ff] placeholder-[#8892a4] focus:outline-none focus:border-[rgba(0,217,255,0.4)] w-44 transition-all"
               />
-              <button
-                class="text-xs text-[#00d9ff] hover:underline whitespace-nowrap"
-                @click="exportCsv"
-              >
+              <button class="text-xs text-[#00d9ff] hover:underline whitespace-nowrap" @click="exportCsv">
                 Export CSV
               </button>
             </div>
@@ -143,6 +149,7 @@
                   <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">#</th>
                   <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">Email</th>
                   <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">Country</th>
+                  <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">Source</th>
                   <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">IP Address</th>
                   <th class="text-left px-6 py-3 text-[#8892a4] text-xs font-medium uppercase tracking-wider">Signed Up</th>
                 </tr>
@@ -162,33 +169,26 @@
                     </span>
                     <span v-else class="text-[#8892a4] text-xs">—</span>
                   </td>
+                  <td class="px-6 py-3">
+                    <span v-if="sub.source" class="text-xs px-2 py-0.5 rounded-full bg-[rgba(0,217,255,0.08)] border border-[rgba(0,217,255,0.2)] text-[#00d9ff]">
+                      {{ sub.source }}
+                    </span>
+                    <span v-else class="text-[#8892a4] text-xs">—</span>
+                  </td>
                   <td class="px-6 py-3 text-[#8892a4] text-xs font-mono">{{ sub.ip ?? '—' }}</td>
                   <td class="px-6 py-3 text-[#8892a4] text-xs">{{ formatDate(sub.created_at) }}</td>
                 </tr>
                 <tr v-if="filteredSubscribers.length === 0">
-                  <td colspan="5" class="px-6 py-8 text-center text-[#8892a4] text-sm">No subscribers found.</td>
+                  <td colspan="6" class="px-6 py-8 text-center text-[#8892a4] text-sm">No subscribers found.</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Pagination -->
           <div v-if="stats.pagination.totalPages > 1" class="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
-            <button
-              :disabled="currentPage === 1"
-              class="text-xs text-[#00d9ff] disabled:text-[#8892a4] disabled:cursor-not-allowed hover:underline"
-              @click="currentPage--"
-            >
-              ← Previous
-            </button>
+            <button :disabled="currentPage === 1" class="text-xs text-[#00d9ff] disabled:text-[#8892a4] disabled:cursor-not-allowed hover:underline" @click="currentPage--">← Previous</button>
             <span class="text-[#8892a4] text-xs">{{ currentPage }} / {{ stats.pagination.totalPages }}</span>
-            <button
-              :disabled="currentPage >= stats.pagination.totalPages"
-              class="text-xs text-[#00d9ff] disabled:text-[#8892a4] disabled:cursor-not-allowed hover:underline"
-              @click="currentPage++"
-            >
-              Next →
-            </button>
+            <button :disabled="currentPage >= stats.pagination.totalPages" class="text-xs text-[#00d9ff] disabled:text-[#8892a4] disabled:cursor-not-allowed hover:underline" @click="currentPage++">Next →</button>
           </div>
         </div>
       </template>
@@ -210,13 +210,11 @@ const { data: stats, pending, refresh } = await useFetch('/api/panel/stats', {
   watch: [currentPage],
 })
 
-// Auto-refresh every 60s
 onMounted(() => {
   const timer = setInterval(refresh, 60_000)
   onUnmounted(() => clearInterval(timer))
 })
 
-// KPI cards config
 const kpiCards = computed(() => {
   if (!stats.value) return []
   const { kpi } = stats.value
@@ -228,7 +226,6 @@ const kpiCards = computed(() => {
   ]
 })
 
-// SVG chart paths
 const linePath = computed(() => {
   if (!stats.value?.dailySignups?.length) return ''
   const data = stats.value.dailySignups
@@ -253,15 +250,11 @@ const areaPath = computed(() => {
   return `M 0,100 L ${pts.join(' L ')} L 400,100 Z`
 })
 
-// Country flag emoji
 function countryFlag(code: string): string {
   if (!code || code === 'Unknown') return '🌍'
-  return code.toUpperCase().replace(/./g, c =>
-    String.fromCodePoint(c.charCodeAt(0) + 127397)
-  )
+  return code.toUpperCase().replace(/./g, c => String.fromCodePoint(c.charCodeAt(0) + 127397))
 }
 
-// Format date
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleString('en-GB', {
     day: '2-digit', month: 'short', year: 'numeric',
@@ -269,7 +262,6 @@ function formatDate(iso: string): string {
   })
 }
 
-// Client-side search filter
 const filteredSubscribers = computed(() => {
   if (!stats.value?.subscribers) return []
   const q = search.value.toLowerCase().trim()
@@ -277,13 +269,12 @@ const filteredSubscribers = computed(() => {
   return stats.value.subscribers.filter(s => s.email.toLowerCase().includes(q))
 })
 
-// Export CSV
 function exportCsv() {
   if (!stats.value?.subscribers) return
   const rows = [
-    ['ID', 'Email', 'Country', 'IP', 'Signed Up'],
+    ['ID', 'Email', 'Country', 'Source', 'IP', 'Signed Up'],
     ...stats.value.subscribers.map(s => [
-      String(s.id), s.email, s.country ?? '', s.ip ?? '', formatDate(s.created_at),
+      String(s.id), s.email, s.country ?? '', s.source ?? '', s.ip ?? '', formatDate(s.created_at),
     ]),
   ]
   const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n')
@@ -296,7 +287,6 @@ function exportCsv() {
   URL.revokeObjectURL(url)
 }
 
-// Logout
 async function handleLogout() {
   await $fetch('/api/panel/logout', { method: 'POST' })
   await navigateTo('/panel/login')
