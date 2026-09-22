@@ -1,33 +1,53 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   title?: string
   description?: string
   label?: string
 }>(), {
-  title: 'Make room for better work',
-  description: 'Plans, people and progress in one clear workspace.',
+  title: 'Great work happens together.',
+  description: 'Projects, tasks, documents and conversations in one clear workspace.',
   label: 'PROJECT MANAGEMENT, TOGETHER',
 })
+
+const isHome = computed(() => props.title === 'Great work happens together.')
 </script>
 
 <template>
-  <div style="width:100%;height:100%;display:flex;background:#f6f5f0;color:#132039;padding:64px;font-family:Inter,Arial,sans-serif;">
-    <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;border:2px solid #cbd3dc;padding:54px;background:#f6f5f0;">
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:18px;">
-          <img src="/favicon.png" width="58" height="58" style="border-radius:15px;">
-          <div style="display:flex;font-size:38px;font-weight:800;letter-spacing:-1px;">Denalify</div>
+  <div style="width:1200px;height:630px;display:flex;flex-direction:column;justify-content:space-between;background:#0f1115;color:#f3f5f8;padding:48px;font-family:Inter,Arial,sans-serif;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="/favicon.png" width="48" height="48" style="border-radius:14px;">
+        <div style="display:flex;font-size:30px;font-weight:800;letter-spacing:-1px;">Denalify</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;color:#aeb7c5;font-size:15px;font-weight:700;letter-spacing:2px;">
+        <div style="width:7px;height:7px;display:flex;border-radius:50%;background:#4b9bfa;"></div>
+        {{ label }}
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:30px;">
+      <div style="width:520px;display:flex;flex-direction:column;">
+        <div v-if="isHome" style="display:flex;flex-direction:column;font-size:67px;line-height:1.03;font-weight:800;letter-spacing:-3px;">
+          <span>Great work</span>
+          <span>happens</span>
+          <span style="color:#4b9bfa;font-style:italic;font-family:Georgia,serif;">together.</span>
         </div>
-        <div style="display:flex;color:#315aa7;font-size:16px;font-weight:800;letter-spacing:3px;">{{ label }}</div>
+        <div v-else style="display:flex;font-size:66px;line-height:1.05;font-weight:800;letter-spacing:-3px;">{{ title }}</div>
+        <div style="display:flex;margin-top:23px;max-width:480px;color:#aeb7c5;font-size:22px;line-height:1.35;">{{ description }}</div>
       </div>
-      <div style="display:flex;flex-direction:column;max-width:930px;">
-        <div style="display:flex;font-size:76px;line-height:1.04;font-weight:800;letter-spacing:-4px;">{{ title }}</div>
-        <div style="display:flex;margin-top:28px;color:#586778;font-size:28px;line-height:1.35;">{{ description }}</div>
+
+      <div style="width:530px;display:flex;flex-direction:column;padding:10px;border:1px solid #343942;border-radius:24px;background:#181b20;">
+        <img src="/ss/boards-og.png" width="508" height="286" style="border-radius:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 8px 3px;color:#aeb7c5;font-size:12px;font-weight:700;letter-spacing:1.5px;">
+          <span>THE WORKSPACE, IN MOTION</span>
+          <span style="color:#4b9bfa;">01 / 03</span>
+        </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;border-top:2px solid #cbd3dc;padding-top:24px;">
-        <div style="display:flex;color:#637185;font-size:19px;">denalify.com</div>
-        <div style="display:flex;color:#2768d8;font-size:27px;font-weight:800;">From idea to done.</div>
-      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #343942;padding-top:20px;">
+      <div style="display:flex;color:#aeb7c5;font-size:17px;">denalify.com</div>
+      <div style="display:flex;color:#f3f5f8;font-size:18px;font-weight:700;">Make room for better work.</div>
     </div>
   </div>
 </template>
