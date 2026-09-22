@@ -107,7 +107,7 @@ const workflow = [
     <section id="showcase" class="section-shell section-space screenshot-section">
       <div class="section-kicker"><span>03 / A CLOSER LOOK</span><span class="tiny-rule" /></div>
       <div class="screenshot-heading"><h2>Made to feel<br><em>good to use.</em></h2><p>Real product, real work. A focused interface that makes the next step obvious.</p></div>
-      <div class="real-screenshot"><img src="/ss/boards.png" alt="Actual Denalify Kanban board in Classic dark mode" loading="lazy" width="1920" height="1000"><div class="screenshot-caption"><span>ACTUAL PRODUCT SCREEN</span><span>CLASSIC BOARD VIEW / DENALIFY</span></div></div>
+      <div class="real-screenshot"><img src="/ss/boards.webp" alt="Actual Denalify Kanban board in Classic dark mode" loading="lazy" width="1920" height="1000"><div class="screenshot-caption"><span>ACTUAL PRODUCT SCREEN</span><span>CLASSIC BOARD VIEW / DENALIFY</span></div></div>
     </section>
 
     <section id="community" class="community-section section-space">
