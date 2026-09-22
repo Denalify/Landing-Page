@@ -4,6 +4,64 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  modules: ['@nuxtjs/seo'],
+
+  site: {
+    url: 'https://denalify.com',
+    name: 'Denalify',
+    description: 'Advanced project and task management for teams that build with their community.',
+    defaultLocale: 'en',
+    trailingSlash: false,
+  },
+
+  seo: {
+    meta: {
+      twitterCard: 'summary_large_image',
+    },
+    canonicalQueryWhitelist: [],
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'Denalify',
+      url: 'https://denalify.com',
+      logo: 'https://denalify.com/favicon.png',
+      email: 'contact@denalify.com',
+    },
+  },
+
+  robots: {
+    disallow: ['/panel', '/api/'],
+    blockAiBots: false,
+    credits: false,
+  },
+
+  sitemap: {
+    exclude: ['/panel', '/panel/**'],
+    zeroRuntime: true,
+  },
+
+  ogImage: {
+    defaults: {
+      width: 1200,
+      height: 630,
+      extension: 'png',
+      alt: 'Denalify — project management for collaborative teams',
+      cacheMaxAgeSeconds: 604800,
+    },
+    security: {
+      maxQueryParamSize: 2048,
+      restrictRuntimeImagesToOrigin: true,
+    },
+  },
+
+  routeRules: {
+    '/panel': { robots: false },
+    '/panel/**': { robots: false },
+    '/api/**': { robots: false },
+  },
+
   components: {
     dirs: [
       {
@@ -22,12 +80,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Denalify — Make room for better work',
+      htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'theme-color', content: '#f6f5f0' },
-        { name: 'twitter:card', content: 'summary_large_image' },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
     },
   },

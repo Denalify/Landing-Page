@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'marketing' })
-useSeoMeta({ title: 'Privacy notice — Denalify', description: 'How Denalify handles personal data on its website and in the app.' })
+useSeoMeta({ title: 'Privacy notice', description: 'How Denalify handles personal data on its website and in the app.' })
+defineOgImage('Denalify', { title: 'Privacy notice', description: 'How Denalify handles personal data on its website and in the app.', label: 'LEGAL' })
 </script>
 
 <template>

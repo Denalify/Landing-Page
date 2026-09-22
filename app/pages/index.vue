@@ -2,13 +2,41 @@
 definePageMeta({ layout: 'marketing' })
 
 useSeoMeta({
-  title: 'Denalify — Make room for better work',
-  description: 'Bring tasks, projects, documents and conversations into one clear workspace. A thoughtful home for teams that build together.',
+  title: 'Project management for teams that build together',
+  description: 'Plan projects, manage Kanban tasks, share documents and automate workflows in one collaborative workspace built around your team.',
   ogTitle: 'Denalify — Make room for better work',
   ogDescription: 'From first idea to finished work, keep your team in sync with Denalify.',
-  ogImage: '/ss/boards.png',
-  twitterCard: 'summary_large_image',
 })
+
+defineOgImage('Denalify', {
+  title: 'Great work happens together.',
+  description: 'Projects, tasks, documents and conversations in one clear workspace.',
+})
+
+useSchemaOrg([
+  {
+    '@type': 'SoftwareApplication',
+    '@id': 'https://denalify.com/#software',
+    name: 'Denalify',
+    url: 'https://app.denalify.com',
+    description: 'Advanced project and task management for collaborative teams.',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    featureList: [
+      'Kanban boards and task lists',
+      'Project documents and whiteboards',
+      'Forms and workflow automations',
+      'Portfolio views and activity history',
+      'Team comments and file sharing',
+    ],
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'EUR',
+      url: 'https://app.denalify.com/auth/signup',
+    },
+  },
+])
 
 const features = [
   { number: '01', title: 'See the work clearly', text: 'Move from a Kanban board to a list or timeline without losing the story behind every task.', icon: '▦' },

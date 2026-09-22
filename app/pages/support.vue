@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'marketing' })
-useSeoMeta({ title: 'Support — Denalify', description: 'Get help with your Denalify account, workspace or billing.' })
+useSeoMeta({ title: 'Support', description: 'Get help with your Denalify account, workspace or billing.' })
+defineOgImage('Denalify', { title: 'Denalify support', description: 'Get help with your account, workspace or billing.', label: 'SUPPORT' })
 </script>
 
 <template>

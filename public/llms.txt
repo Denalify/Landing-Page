@@ -1,0 +1,23 @@
+# Denalify
+
+> Denalify is a web application for advanced project and task management, combining Kanban workflows, planning, documentation and team collaboration in one workspace.
+
+The public website is https://denalify.com. The application is available at https://app.denalify.com.
+
+## Product
+
+- [Denalify overview](https://denalify.com/): Product capabilities, workflow and free-plan information.
+- [Support](https://denalify.com/support): Help with accounts, workspaces and billing.
+
+Denalify supports Kanban boards, list and timeline views, tasks, documents, comments, files, whiteboards, forms, automations, portfolios and activity history. It is designed for teams that want community feedback to influence the product roadmap.
+
+## Policies
+
+- [Privacy notice](https://denalify.com/privacy)
+- [Cookie notice](https://denalify.com/cookies)
+- [Terms of service](https://denalify.com/terms)
+- [Acceptable use](https://denalify.com/acceptable-use)
+
+## Contact
+
+For support, privacy questions or product feedback, email contact@denalify.com.

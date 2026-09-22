@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'marketing' })
-useSeoMeta({ title: 'Acceptable use — Denalify', description: 'Rules for keeping Denalify safe and useful for everyone.' })
+useSeoMeta({ title: 'Acceptable use', description: 'Rules for keeping Denalify safe and useful for everyone.' })
+defineOgImage('Denalify', { title: 'Acceptable use', description: 'Rules for keeping Denalify safe and useful for everyone.', label: 'LEGAL' })
 </script>
 
 <template>
