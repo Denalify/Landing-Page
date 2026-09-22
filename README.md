@@ -1,75 +1,22 @@
-# Nuxt Minimal Starter
+# Denalify landing page
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Nuxt 4 site for Denalify. The public pages are `/`, `/privacy`, `/cookies`, `/terms`, `/acceptable-use`, and `/support`. The existing waitlist administration panel remains at `/panel`.
 
-## Setup
-
-Make sure to install dependencies:
+## Run locally
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+npm ci
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+`npm run build` checks the production bundle. The waitlist needs `DATABASE_URL`; the panel also needs `ADMIN_USERNAME`, `ADMIN_PASSWORD` and `SESSION_SECRET`. Do not commit credentials.
 
-Build the application for production:
+## Launch checklist
 
-```bash
-# npm
-npm run build
+- Replace the visible legal-draft notices on `/privacy` and `/terms` with the verified operator's registered name, postal address and registration details. Have counsel review the policies, consumer withdrawal information and checkout journey before publication.
+- Confirm `contact@denalify.com` is monitored, and document the actual hosting/email/storage/payment providers, international transfers and retention periods in the privacy notice.
+- Review and remove legacy waitlist IP/country data if no longer needed. New signups store email, source (if supplied) and signup time only; the external geolocation request has been removed.
+- The landing page currently has no optional analytics or marketing cookies. If those are introduced, add a consent mechanism before loading them and update `/cookies`.
+- Confirm the free-plan details against the backend plan configuration before changing limits or pricing on the page.
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The interactive hero is an illustrative product preview; the separate board image is an existing screenshot from this repository. Animations respect reduced-motion preferences.
