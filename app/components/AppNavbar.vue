@@ -12,7 +12,7 @@ watch(() => route.fullPath, () => { open.value = false })
 
 <template>
   <header class="site-header"><div class="section-shell nav-inner">
-    <NuxtLink to="/" aria-label="Denalify home" class="brand"><img src="/logo-dark.webp" alt="Denalify" width="158" height="44"></NuxtLink>
+    <NuxtLink to="/" aria-label="Denalify home" class="brand"><img src="/logo-white.webp" alt="Denalify" width="158" height="44"></NuxtLink>
     <nav class="desktop-nav" aria-label="Main navigation"><a v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</a></nav>
     <div class="nav-actions"><a class="login-link" href="https://app.denalify.com/auth/signin">Log in</a><a class="button button-dark nav-cta" href="https://app.denalify.com/auth/signup">Get started <span aria-hidden="true">↗</span></a></div>
     <button class="menu-toggle" type="button" :aria-expanded="open" aria-controls="mobile-nav" :aria-label="open ? 'Close menu' : 'Open menu'" @click="open = !open"><span></span><span></span></button>

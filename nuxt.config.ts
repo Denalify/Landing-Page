@@ -82,7 +82,7 @@ export default defineNuxtConfig({
       title: 'Denalify — Make room for better work',
       htmlAttrs: { lang: 'en' },
       meta: [
-        { name: 'theme-color', content: '#f6f5f0' },
+        { name: 'theme-color', content: '#0f1115' },
       ],
     },
   },
