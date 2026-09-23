@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/panel', '/panel/**'],
+    exclude: ['/panel', '/panel/**', '/unsubscribe'],
     zeroRuntime: true,
   },
 
@@ -56,8 +56,9 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/panel': { robots: false },
-    '/panel/**': { robots: false },
+    '/panel': { robots: false, headers: { 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer', 'Cache-Control': 'no-store' } },
+    '/panel/**': { robots: false, headers: { 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer', 'Cache-Control': 'no-store' } },
+    '/api/panel/**': { robots: false, headers: { 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-store' } },
     '/api/**': { robots: false },
   },
 
@@ -88,8 +89,21 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL ?? '',
-    adminUsername: process.env.ADMIN_USERNAME ?? 'admin',
+    appDatabaseUrl: process.env.APP_DATABASE_URL ?? '',
+    adminUsername: process.env.ADMIN_USERNAME ?? '',
     adminPassword: process.env.ADMIN_PASSWORD ?? '',
+    adminTotpSecret: process.env.ADMIN_TOTP_SECRET ?? '',
     sessionSecret: process.env.SESSION_SECRET ?? '',
+    smtpHost: process.env.SMTP_HOST ?? '',
+    smtpPort: Number(process.env.SMTP_PORT ?? 587),
+    smtpSecure: process.env.SMTP_SECURE === 'true',
+    smtpUsername: process.env.SMTP_USERNAME ?? '',
+    smtpPassword: process.env.SMTP_PASSWORD ?? '',
+    mailFromAddress: process.env.MAIL_FROM_ADDRESS ?? '',
+    mailFromName: process.env.MAIL_FROM_NAME ?? 'Denalify',
+    newsletterTestEmail: process.env.NEWSLETTER_TEST_EMAIL ?? 'patrydab4@gmail.com',
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL ?? 'https://denalify.com',
+    },
   },
 })

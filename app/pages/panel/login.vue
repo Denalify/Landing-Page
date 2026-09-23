@@ -11,31 +11,8 @@
         <p class="text-[#8892a4] text-sm">Admin Panel</p>
       </div>
 
-      <!-- LOCKED state -->
       <Transition name="menu" mode="out-in">
-        <div v-if="locked" class="glass-card p-8 text-center border-red-500/30">
-          <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-red-400" viewBox="0 0 24 24" fill="none">
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
-            </svg>
-          </div>
-          <h2 class="text-[#f0f6ff] text-lg font-bold mb-2">Panel Locked</h2>
-          <p class="text-[#8892a4] text-sm leading-relaxed mb-4">
-            Too many failed login attempts. Access to the panel has been permanently disabled for this session.
-          </p>
-          <div class="bg-[rgba(239,68,68,0.08)] border border-red-500/20 rounded-xl p-4 text-left">
-            <p class="text-red-300 text-xs font-medium mb-1">To regain access:</p>
-            <ol class="text-[#8892a4] text-xs space-y-1 list-decimal list-inside">
-              <li>Update <code class="text-[#00d9ff]">ADMIN_PASSWORD</code> in <code class="text-[#00d9ff]">.env</code></li>
-              <li>Restart the server / redeploy</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- LOGIN form -->
-        <div v-else class="glass-card p-8">
+        <div class="glass-card border border-white/10 bg-white/[.035] p-8 rounded-2xl">
           <h1 class="text-[#f0f6ff] text-xl font-bold mb-6 text-center">Sign in</h1>
 
           <form @submit.prevent="handleLogin" class="flex flex-col gap-4">
@@ -49,6 +26,19 @@
                 :disabled="status === 'loading'"
                 class="bg-[rgba(255,255,255,0.05)] border border-[rgba(0,217,255,0.2)] rounded-xl px-4 py-3 text-sm text-[#f0f6ff] placeholder-[#8892a4] focus:outline-none focus:border-[rgba(0,217,255,0.5)] transition-all duration-200 disabled:opacity-50"
               />
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-[#8892a4] text-xs font-medium uppercase tracking-wider">2FA code <span class="normal-case tracking-normal">(if enabled)</span></label>
+              <input
+                v-model="otp"
+                type="text"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                maxlength="6"
+                :disabled="status === 'loading'"
+                class="bg-[rgba(255,255,255,0.05)] border border-[rgba(0,217,255,0.2)] rounded-xl px-4 py-3 text-sm text-[#f0f6ff] placeholder-[#8892a4] focus:outline-none focus:border-[rgba(0,217,255,0.5)] transition-all duration-200 disabled:opacity-50"
+              >
             </div>
 
             <div class="flex flex-col gap-1.5">
@@ -87,19 +77,18 @@ definePageMeta({ layout: false })
 
 const username = ref('')
 const password = ref('')
+const otp = ref('')
 const status = ref<'idle' | 'loading'>('idle')
 const error = ref('')
-const locked = ref(false)
+const csrf = useState<string>('panel-csrf', () => '')
 
 // Check lock state on mount (e.g. after page refresh post-lockout)
 onMounted(async () => {
   try {
-    await $fetch('/api/panel/check')
-    // Already authenticated — go to panel
+    const result = await $fetch<{ csrfToken: string }>('/api/panel/check')
+    csrf.value = result.csrfToken
     await navigateTo('/panel')
-  } catch (err: any) {
-    if (err?.status === 423) locked.value = true
-  }
+  } catch {}
 })
 
 const handleLogin = async () => {
@@ -107,18 +96,15 @@ const handleLogin = async () => {
   status.value = 'loading'
 
   try {
-    await $fetch('/api/panel/login', {
+    const result = await $fetch<{ csrfToken: string }>('/api/panel/login', {
       method: 'POST',
-      body: { username: username.value, password: password.value },
+      body: { username: username.value, password: password.value, otp: otp.value },
     })
+    csrf.value = result.csrfToken
     await navigateTo('/panel')
   } catch (err: any) {
     status.value = 'idle'
-    if (err?.status === 423) {
-      locked.value = true
-    } else {
-      error.value = err?.data?.statusMessage ?? 'Login failed. Try again.'
-    }
+    error.value = err?.data?.statusMessage ?? 'Login failed. Try again.'
   }
 }
 </script>

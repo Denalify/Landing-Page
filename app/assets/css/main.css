@@ -89,6 +89,8 @@ body, .marketing-site { background: var(--site-bg); color: var(--site-text); }
 .updates-grid p, .form-disclaimer { color: #b9c7d9 !important; }
 .signup-row input { background: #1d2026; color: var(--site-text); border-color: #4b5665; border-radius: 10px; }
 .signup-row input::placeholder { color: #9ba8b8; }
+.newsletter-consent { display:flex!important;align-items:flex-start;gap:10px;margin:14px 0 9px!important;color:#b9c7d9;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;line-height:1.5;text-transform:none!important; }
+.newsletter-consent input { flex:none;width:16px;height:16px;margin-top:1px;accent-color:#4b9bfa; }
 .form-success { color: #d7f3df !important; background: #1d3b2a; border-color: #3b7850; border-radius: 10px; }
 .form-error { color: #ff9d9d !important; }
 .site-footer { background: var(--site-bg); }

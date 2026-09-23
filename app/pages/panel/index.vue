@@ -1,32 +1,10 @@
 <template>
-  <div class="min-h-screen bg-[#0a0e1a]">
-    <!-- Topbar -->
-    <header class="sticky top-0 z-40 bg-[rgba(10,14,26,0.92)] backdrop-blur-xl border-b border-[rgba(0,217,255,0.08)]">
-      <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <img src="/logo-white.webp" alt="Denalify" class="h-7 w-auto" />
-          <span class="text-[#8892a4] text-xs">|</span>
-          <span class="text-[#8892a4] text-sm">Waitlist Panel</span>
-        </div>
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#00d9ff] animate-pulse" />
-            <span class="text-[#8892a4] text-xs">Live</span>
-          </div>
-          <button
-            class="text-sm text-[#8892a4] hover:text-[#f0f6ff] transition-colors flex items-center gap-1.5"
-            @click="handleLogout"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none">
-              <path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Logout
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6 py-8">
+  <section>
+    <div class="mb-7">
+      <p class="text-xs font-semibold uppercase tracking-[.18em] text-[#4b9bfa]">Dashboard</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight">Audience overview</h1>
+      <p class="mt-2 text-sm text-[#8892a4]">Newsletter growth and signup sources at a glance.</p>
+    </div>
       <div v-if="pending" class="flex items-center justify-center py-32">
         <div class="w-8 h-8 border-2 border-[#00d9ff] border-t-transparent rounded-full animate-spin" />
       </div>
@@ -87,7 +65,7 @@
                   <div class="h-1.5 rounded-full bg-[rgba(255,255,255,0.06)] overflow-hidden">
                     <div
                       class="h-full rounded-full bg-gradient-to-r from-[#00d9ff] to-[#3b82f6] transition-all duration-500"
-                      :style="{ width: `${(c.count / stats.byCountry[0].count) * 100}%` }"
+                    :style="{ width: `${(c.count / (stats.byCountry[0]?.count || 1)) * 100}%` }"
                     />
                   </div>
                 </div>
@@ -192,13 +170,12 @@
           </div>
         </div>
       </template>
-    </main>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: false,
+  layout: 'panel',
   middleware: 'panel-auth',
 })
 
@@ -287,8 +264,4 @@ function exportCsv() {
   URL.revokeObjectURL(url)
 }
 
-async function handleLogout() {
-  await $fetch('/api/panel/logout', { method: 'POST' })
-  await navigateTo('/panel/login')
-}
 </script>

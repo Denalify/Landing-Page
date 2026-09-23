@@ -23,10 +23,10 @@ export default defineEventHandler(async (event) => {
     // KPI counts
     sql<{ total: string; today: string; this_week: string; this_month: string }[]>`
       SELECT
-        COUNT(*)                                                             AS total,
-        COUNT(*) FILTER (WHERE created_at >= CURRENT_DATE)                  AS today,
-        COUNT(*) FILTER (WHERE created_at >= date_trunc('week', NOW()))      AS this_week,
-        COUNT(*) FILTER (WHERE created_at >= date_trunc('month', NOW()))     AS this_month
+        COUNT(*) FILTER (WHERE status = 'subscribed') AS total,
+        COUNT(*) FILTER (WHERE status = 'subscribed' AND created_at >= CURRENT_DATE) AS today,
+        COUNT(*) FILTER (WHERE status = 'subscribed' AND created_at >= date_trunc('week', NOW())) AS this_week,
+        COUNT(*) FILTER (WHERE status = 'subscribed' AND created_at >= date_trunc('month', NOW())) AS this_month
       FROM waitlist
     `,
 
@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
       LEFT JOIN (
         SELECT DATE(created_at) AS d, COUNT(*) AS cnt
         FROM waitlist
-        WHERE created_at >= CURRENT_DATE - INTERVAL '29 days'
+        WHERE status = 'subscribed' AND created_at >= CURRENT_DATE - INTERVAL '29 days'
         GROUP BY DATE(created_at)
       ) w ON w.d = gs.day
       ORDER BY gs.day
@@ -55,6 +55,7 @@ export default defineEventHandler(async (event) => {
         COALESCE(country, 'Unknown') AS country,
         COUNT(*)::TEXT               AS count
       FROM waitlist
+      WHERE status = 'subscribed'
       GROUP BY country
       ORDER BY COUNT(*) DESC
       LIMIT 20
@@ -66,13 +67,14 @@ export default defineEventHandler(async (event) => {
         COALESCE(source, 'Not specified') AS source,
         COUNT(*)::TEXT                    AS count
       FROM waitlist
+      WHERE status = 'subscribed'
       GROUP BY source
       ORDER BY COUNT(*) DESC
     `,
 
     // Paginated subscriber list
-    sql<{ id: number; email: string; country: string | null; ip: string | null; source: string | null; created_at: string }[]>`
-      SELECT id, email, country, ip, source, created_at
+    sql<{ id: number; email: string; country: string | null; ip: string | null; source: string | null; status: string; created_at: string }[]>`
+      SELECT id, email, country, ip, source, status, created_at
       FROM waitlist
       ORDER BY created_at DESC
       LIMIT ${perPage} OFFSET ${offset}
@@ -82,7 +84,7 @@ export default defineEventHandler(async (event) => {
     sql<{ count: string }[]>`SELECT COUNT(*) AS count FROM waitlist`,
   ])
 
-  const kpi = totals[0]
+  const kpi = totals[0]!
 
   return {
     kpi: {
@@ -98,8 +100,8 @@ export default defineEventHandler(async (event) => {
     pagination: {
       page,
       perPage,
-      total: Number(countResult[0].count),
-      totalPages: Math.ceil(Number(countResult[0].count) / perPage),
+      total: Number(countResult[0]?.count || 0),
+      totalPages: Math.ceil(Number(countResult[0]?.count || 0) / perPage),
     },
   }
 })
