@@ -122,6 +122,6 @@ const workflow = [
       <div class="pricing-grid"><div><h2>Start small.<br><em>Build something big.</em></h2><p>Try Denalify with a free workspace. Bring your team in and choose a paid plan when you need more room.</p><a class="button button-primary" href="https://app.denalify.com/auth/signup">Create your workspace <span aria-hidden="true">↗</span></a></div><div class="pricing-note"><div class="pricing-note-head">FREE WORKSPACE <span>↗</span></div><strong>€0</strong><span class="pricing-unit">to get started</span><ul><li>Up to 35 members</li><li>3 projects and 1 GB storage</li><li>Boards, tasks and Discord integration</li></ul><a href="https://app.denalify.com/auth/signup">See it for yourself <span aria-hidden="true">↗</span></a></div></div>
     </section>
 
-    <section id="updates" class="updates-section"><div class="section-shell updates-grid"><div><div class="section-kicker">STAY IN THE LOOP</div><h2>See what’s next for Denalify.</h2><p>Join the early-access list for product updates and an invitation when a place is available.</p></div><EmailSignupForm /></div></section>
+    <section id="updates" class="updates-section"><div class="section-shell updates-grid"><div><div class="section-kicker">OPEN TO EVERYONE</div><h2>Ready when you are.</h2><p>Create a free Denalify workspace today and bring your team together in one place.</p></div><div><a class="button button-dark" href="https://app.denalify.com/auth/signup">Create your workspace <span aria-hidden="true">↗</span></a></div></div></section>
   </main>
 </template>

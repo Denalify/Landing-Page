@@ -23,10 +23,9 @@ export default defineNuxtConfig({
 
   schemaOrg: {
     identity: {
-      type: 'Organization',
-      name: 'Denalify',
+      type: 'Person',
+      name: 'Patryk Dąbrowski',
       url: 'https://denalify.com',
-      logo: 'https://denalify.com/favicon.png',
       email: 'contact@denalify.com',
     },
   },
