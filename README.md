@@ -1,6 +1,6 @@
 # Denalify landing page
 
-Nuxt 4 site for Denalify. The public pages are `/`, `/privacy`, `/cookies`, `/terms`, `/acceptable-use`, `/support`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates and a read-only app-user list.
+Nuxt 4 site for Denalify. The public pages are `/`, `/task-management`, `/kanban-boards`, `/privacy`, `/cookies`, `/terms`, `/acceptable-use`, `/support`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates and a read-only app-user list.
 
 ## Run locally
 

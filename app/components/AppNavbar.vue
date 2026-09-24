@@ -2,8 +2,8 @@
 const open = ref(false)
 const links = [
   { label: 'Product', href: '/#product' },
-  { label: 'How it works', href: '/#workflow' },
-  { label: 'Community', href: '/#community' },
+  { label: 'Task management', href: '/task-management' },
+  { label: 'Kanban boards', href: '/kanban-boards' },
   { label: 'Pricing', href: '/#pricing' },
 ]
 const route = useRoute()

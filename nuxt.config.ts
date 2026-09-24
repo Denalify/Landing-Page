@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://denalify.com',
     name: 'Denalify',
-    description: 'Advanced project and task management for teams that build with their community.',
+    description: 'Project management and team task management software with Kanban boards, shared documents and collaboration tools.',
     defaultLocale: 'en',
     trailingSlash: false,
   },
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
       width: 1200,
       height: 630,
       extension: 'png',
-      alt: 'Denalify — project management for collaborative teams',
+      alt: 'Denalify project management and task management software for teams',
       cacheMaxAgeSeconds: 604800,
     },
     security: {

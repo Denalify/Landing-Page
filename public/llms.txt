@@ -7,6 +7,8 @@ The public website is https://denalify.com. The application is available at http
 ## Product
 
 - [Denalify overview](https://denalify.com/): Product capabilities, workflow and free-plan information.
+- [Team task management](https://denalify.com/task-management): Assignments, deadlines, checklists, dependencies and task conversations.
+- [Kanban boards](https://denalify.com/kanban-boards): Project columns, task cards, filters and alternate views.
 - [Support](https://denalify.com/support): Help with accounts, workspaces and billing.
 
 Denalify supports Kanban boards, list and timeline views, tasks, documents, comments, files, whiteboards, forms, automations, portfolios and activity history. It is designed for teams that want community feedback to influence the product roadmap.
