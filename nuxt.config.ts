@@ -10,7 +10,12 @@ export default defineNuxtConfig({
     baseUrl: 'https://denalify.com',
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
-    detectBrowserLanguage: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
+      redirectOn: 'root',
+      fallbackLocale: 'en',
+    },
     experimental: { strictSeo: true },
     locales: [
       { code: 'en', language: 'en', name: 'English', file: 'en.json' },
