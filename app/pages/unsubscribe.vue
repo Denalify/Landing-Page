@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'marketing' })
+definePageMeta({ layout: 'marketing', i18n: false })
 useSeoMeta({ title: 'Unsubscribe from the Denalify newsletter', robots: 'noindex, nofollow' })
 
 const route = useRoute()

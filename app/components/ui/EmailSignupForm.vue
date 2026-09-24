@@ -1,9 +1,9 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const email = ref('')
 const honeypot = ref('')
 const consent = ref(false)
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
-
 async function submit() {
   if (status.value === 'sending') return
   status.value = 'sending'
@@ -19,5 +19,5 @@ async function submit() {
 </script>
 
 <template>
-  <div class="signup-wrap"><p v-if="status === 'success'" class="form-success" role="status">You’re subscribed. Watch your inbox for Denalify news and launch updates.</p><form v-else class="signup-form" @submit.prevent="submit"><label for="waitlist-email">Your email address</label><div class="signup-row"><input id="waitlist-email" v-model.trim="email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required maxlength="254"><button class="button button-dark" type="submit" :disabled="status === 'sending'">{{ status === 'sending' ? 'Subscribing…' : 'Join the newsletter' }} <span aria-hidden="true">↗</span></button></div><label class="newsletter-consent"><input v-model="consent" type="checkbox" required><span>I agree to receive Denalify launch news and product updates by email. I can unsubscribe at any time.</span></label><input v-model="honeypot" class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p v-if="status === 'error'" class="form-error" role="alert">We couldn’t save your subscription. Please try again later.</p><p class="form-disclaimer">We use your address only for the Denalify newsletter. Every email includes an unsubscribe link. Read our <NuxtLink to="/privacy">privacy notice</NuxtLink>.</p></form></div>
+  <div class="signup-wrap"><p v-if="status === 'success'" class="form-success" role="status">{{ t('form.success') }}</p><form v-else class="signup-form" @submit.prevent="submit"><label for="waitlist-email">{{ t('form.email') }}</label><div class="signup-row"><input id="waitlist-email" v-model.trim="email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required maxlength="254"><button class="button button-dark" type="submit" :disabled="status === 'sending'">{{ t(status === 'sending' ? 'form.sending' : 'form.submit') }} <span aria-hidden="true">↗</span></button></div><label class="newsletter-consent"><input v-model="consent" type="checkbox" required><span>{{ t('form.consent') }}</span></label><input v-model="honeypot" class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p v-if="status === 'error'" class="form-error" role="alert">{{ t('form.error') }}</p><p class="form-disclaimer">{{ t('form.disclaimer') }} <NuxtLink to="/privacy">{{ t('form.privacy') }}</NuxtLink>.</p></form></div>
 </template>

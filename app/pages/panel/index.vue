@@ -177,6 +177,7 @@
 definePageMeta({
   layout: 'panel',
   middleware: 'panel-auth',
+  i18n: false,
 })
 
 const currentPage = ref(1)

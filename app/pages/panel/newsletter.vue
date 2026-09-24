@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'panel', middleware: 'panel-auth' })
+definePageMeta({ layout: 'panel', middleware: 'panel-auth', i18n: false })
 
 type RichText = Record<string, any>
 type Template = { id: number; name: string; subject: string; preview_text: string | null; content: RichText; is_system: boolean }

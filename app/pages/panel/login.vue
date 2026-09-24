@@ -73,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: false })
+definePageMeta({ layout: false, i18n: false })
 
 const username = ref('')
 const password = ref('')

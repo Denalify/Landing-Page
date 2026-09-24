@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'marketing' })
+definePageMeta({ layout: 'marketing', i18n: false })
 useSeoMeta({ title: 'Terms of service', description: 'Terms for using the Denalify application and website.' })
 defineOgImage('Denalify', { title: 'Terms of service', description: 'Terms for using the Denalify application and website.', label: 'LEGAL' })
 </script>

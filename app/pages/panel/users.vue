@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'panel', middleware: 'panel-auth' })
+definePageMeta({ layout: 'panel', middleware: 'panel-auth', i18n: false })
 
 type UserData = {
   configured: boolean

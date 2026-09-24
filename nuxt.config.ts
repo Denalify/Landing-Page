@@ -4,12 +4,27 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/seo'],
+  modules: ['@nuxtjs/seo', '@nuxtjs/i18n'],
+
+  i18n: {
+    baseUrl: 'https://denalify.com',
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
+    experimental: { strictSeo: true },
+    locales: [
+      { code: 'en', language: 'en', name: 'English', file: 'en.json' },
+      { code: 'pl', language: 'pl', name: 'Polski', file: 'pl.json' },
+      { code: 'es', language: 'es', name: 'Español', file: 'es.json' },
+      { code: 'fr', language: 'fr', name: 'Français', file: 'fr.json' },
+      { code: 'de', language: 'de', name: 'Deutsch', file: 'de.json' },
+      { code: 'pt', language: 'pt', name: 'Português', file: 'pt.json' },
+    ],
+  },
 
   site: {
     url: 'https://denalify.com',
     name: 'Denalify',
-    description: 'Project management and team task management software with Kanban boards, shared documents and collaboration tools.',
     defaultLocale: 'en',
     trailingSlash: false,
   },
@@ -80,7 +95,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Denalify — Make room for better work',
-      htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'theme-color', content: '#0f1115' },
       ],

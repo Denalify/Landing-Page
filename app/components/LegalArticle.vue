@@ -1,14 +1,16 @@
 <script setup lang="ts">
 defineProps<{ eyebrow: string; title: string; introduction: string; updated?: string }>()
-const links = [
-  { label: 'Privacy notice', to: '/privacy' },
-  { label: 'Cookie notice', to: '/cookies' },
-  { label: 'Terms of service', to: '/terms' },
-  { label: 'Acceptable use', to: '/acceptable-use' },
-  { label: 'Support', to: '/support' },
-]
+const { t } = useI18n()
+const localePath = useLocalePath()
+const links = computed(() => [
+  { label: t('footer.privacy'), to: '/privacy' },
+  { label: t('footer.cookies'), to: '/cookies' },
+  { label: t('footer.terms'), to: '/terms' },
+  { label: t('footer.acceptableUse'), to: '/acceptable-use' },
+  { label: t('footer.support'), to: localePath('/support') },
+])
 </script>
 
 <template>
-  <main><header class="section-shell legal-hero"><div class="section-kicker">{{ eyebrow }}</div><h1>{{ title }}</h1><p>{{ introduction }}</p><div class="legal-meta">{{ updated || 'Last updated: 23 September 2026' }}</div></header><div class="section-shell legal-layout"><nav class="legal-nav" aria-label="Legal and support pages"><span>ON THIS SITE</span><NuxtLink v-for="link in links" :key="link.to" :to="link.to">{{ link.label }}</NuxtLink></nav><article class="legal-content"><slot /></article></div></main>
+  <main><header class="section-shell legal-hero"><div class="section-kicker">{{ eyebrow }}</div><h1>{{ title }}</h1><p>{{ introduction }}</p><div class="legal-meta">{{ updated || t('support.updated') }}</div></header><div class="section-shell legal-layout"><nav class="legal-nav" :aria-label="t('support.nav')"><span>{{ t('support.onSite') }}</span><NuxtLink v-for="link in links" :key="link.to" :to="link.to">{{ link.label }}</NuxtLink></nav><article class="legal-content"><slot /></article></div></main>
 </template>

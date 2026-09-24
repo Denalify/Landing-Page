@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'marketing' })
+definePageMeta({ layout: 'marketing', i18n: false })
 useSeoMeta({ title: 'Cookie notice', description: 'Cookies and similar storage used by the Denalify website and app.' })
 defineOgImage('Denalify', { title: 'Cookie notice', description: 'Cookies and similar storage used by the Denalify website and app.', label: 'LEGAL' })
 </script>
