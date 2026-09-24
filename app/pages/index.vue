@@ -129,7 +129,7 @@ const workflow = [
     <section id="showcase" class="section-shell section-space screenshot-section">
       <div class="section-kicker"><span>04 / A CLOSER LOOK</span><span class="tiny-rule" /></div>
       <div class="screenshot-heading"><h2>See your project<br><em>at a glance.</em></h2><p>This is an actual Denalify board. Columns show what is to do, in progress and done; each card keeps a task’s priority, due date and checklist progress close.</p></div>
-      <div class="real-screenshot"><img src="/ss/boards.webp" alt="Denalify Kanban board with To Do, In Progress and Done task columns, priorities and due dates" loading="lazy" width="1280" height="716"><div class="screenshot-caption"><span>ACTUAL PRODUCT SCREEN</span><span>CLASSIC BOARD VIEW / DENALIFY</span></div></div>
+      <div class="real-screenshot"><img src="/ss/boards.jpg" alt="Denalify Kanban board with To Do, In Progress and Done task columns, priorities and due dates" loading="lazy" width="1280" height="716"><div class="screenshot-caption"><span>ACTUAL PRODUCT SCREEN</span><span>CLASSIC BOARD VIEW / DENALIFY</span></div></div>
     </section>
 
     <section id="community" class="community-section section-space">

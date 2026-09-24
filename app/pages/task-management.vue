@@ -61,7 +61,7 @@ const questions = [
         </div>
       </div>
       <div class="feature-hero-visual">
-        <img src="/ss/boards.webp" alt="Denalify project board showing assigned tasks, due dates, priorities and checklist progress" width="1280" height="716" fetchpriority="high">
+        <img src="/ss/boards.jpg" alt="Denalify project board showing assigned tasks, due dates, priorities and checklist progress" width="1280" height="716" fetchpriority="high">
         <span>ACTUAL DENALIFY BOARD / CLASSIC THEME</span>
       </div>
     </section>

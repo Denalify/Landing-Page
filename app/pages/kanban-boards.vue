@@ -46,7 +46,7 @@ const boardSteps = [
         </div>
       </div>
       <div class="feature-hero-visual">
-        <img src="/ss/boards.webp" alt="Denalify Kanban board with To Do, In Progress and Done columns and detailed task cards" width="1280" height="716" fetchpriority="high">
+        <img src="/ss/boards.jpg" alt="Denalify Kanban board with To Do, In Progress and Done columns and detailed task cards" width="1280" height="716" fetchpriority="high">
         <span>ACTUAL DENALIFY BOARD / CLASSIC THEME</span>
       </div>
     </section>
