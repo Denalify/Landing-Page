@@ -15,7 +15,7 @@ async function changeLanguage(event: Event) {
     <div class="footer-top"><div class="footer-brand"><NuxtLink :to="localePath('/')" :aria-label="t('nav.home')"><img src="/logo-white.webp" alt="Denalify" width="158" height="44"></NuxtLink><p>{{ t('footer.tagline') }}</p></div><div class="footer-links">
       <div><h2>{{ t('footer.explore') }}</h2><NuxtLink :to="localePath('/task-management')">{{ t('footer.teamTasks') }}</NuxtLink><NuxtLink :to="localePath('/kanban-boards')">{{ t('nav.boards') }}</NuxtLink><NuxtLink :to="localePath('/compare')">{{ t('nav.compare') }}</NuxtLink><NuxtLink :to="`${localePath('/')}#pricing`">{{ t('nav.pricing') }}</NuxtLink></div>
       <div><h2>{{ t('footer.trust') }}</h2><NuxtLink :to="localePath('/nonprofits')">{{ t('footer.nonprofits') }}</NuxtLink><NuxtLink :to="localePath('/security')">{{ t('footer.security') }}</NuxtLink><NuxtLink :to="localePath('/nis2')">NIS2</NuxtLink><NuxtLink :to="localePath('/support')">{{ t('footer.support') }}</NuxtLink></div>
-      <div><h2>{{ t('footer.legal') }}</h2><NuxtLink to="/privacy">{{ t('footer.privacy') }}</NuxtLink><NuxtLink to="/cookies">{{ t('footer.cookies') }}</NuxtLink><NuxtLink to="/terms">{{ t('footer.terms') }}</NuxtLink><NuxtLink to="/acceptable-use">{{ t('footer.acceptableUse') }}</NuxtLink></div>
+      <div><h2>{{ t('footer.legal') }}</h2><NuxtLink to="/privacy">{{ t('footer.privacy') }}</NuxtLink><NuxtLink to="/cookies">{{ t('footer.cookies') }}</NuxtLink><NuxtLink to="/terms">{{ t('footer.terms') }}</NuxtLink><NuxtLink to="/acceptable-use">{{ t('footer.acceptableUse') }}</NuxtLink><NuxtLink to="/dpa">DPA</NuxtLink></div>
     </div></div>
     <div class="footer-bottom">
       <span>© {{ new Date().getFullYear() }} Denalify · Patryk Dąbrowski</span>
