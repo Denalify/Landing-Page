@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 
   i18n: {
     baseUrl: 'https://denalify.com',
+    vueI18n: './i18n.config.ts',
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
     detectBrowserLanguage: {

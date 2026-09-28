@@ -59,7 +59,12 @@ useSchemaOrg([{
 
     <section id="community" class="community-section section-space"><div class="section-shell community-grid"><div class="community-mark" aria-hidden="true"><span>↗</span><span>↗</span><span>↗</span></div><div><div class="section-kicker">05 / {{ t('home.community.kicker') }}</div><h2>{{ t('home.community.title') }}<br><em>{{ t('home.community.emphasis') }}</em></h2><p>{{ t('home.community.text') }}</p><a class="text-link text-link-light" href="mailto:contact@denalify.com?subject=Denalify%20product%20feedback">{{ t('home.community.link') }} <span aria-hidden="true">↗</span></a></div></div></section>
 
-    <section id="pricing" class="section-shell section-space pricing-section"><div class="section-kicker"><span>06 / {{ t('common.getStarted') }}</span><span class="tiny-rule" /></div><div class="pricing-grid"><div><h2>{{ t('home.pricing.title') }}<br><em>{{ t('home.pricing.emphasis') }}</em></h2><p>{{ t('home.pricing.text') }}</p><a class="button button-primary" href="https://app.denalify.com/auth/signup">{{ t('common.createWorkspace') }} <span aria-hidden="true">↗</span></a></div><div class="pricing-note"><div class="pricing-note-head">{{ t('home.pricing.free') }} <span>↗</span></div><strong>€0</strong><span class="pricing-unit">{{ t('home.pricing.unit') }}</span><ul><li>{{ t('home.pricing.benefits.0') }}</li><li>{{ t('home.pricing.benefits.1') }}</li><li>{{ t('home.pricing.benefits.2') }}</li></ul><a href="https://app.denalify.com/auth/signup">{{ t('home.pricing.try') }} <span aria-hidden="true">↗</span></a></div></div></section>
+    <section id="pricing" class="section-shell section-space pricing-section">
+      <div class="section-kicker"><span>06 / {{ t('pricing.kicker') }}</span><span class="tiny-rule" /></div>
+      <div class="pricing-heading"><div><h2>{{ t('pricing.title') }} <em>{{ t('pricing.emphasis') }}</em></h2><p>{{ t('pricing.intro') }}</p></div><NuxtLink class="text-link" :to="localePath('/compare')">{{ t('pricing.compare') }} <span aria-hidden="true">↗</span></NuxtLink></div>
+      <PricingCards />
+      <p class="pricing-footnote">{{ t('pricing.footnote') }}</p>
+    </section>
 
     <section id="updates" class="updates-section"><div class="section-shell updates-grid"><div><div class="section-kicker">{{ t('home.newsletter.kicker') }}</div><h2>{{ t('home.newsletter.title') }}</h2><p>{{ t('home.newsletter.text') }}</p></div><EmailSignupForm /></div></section>
   </main>

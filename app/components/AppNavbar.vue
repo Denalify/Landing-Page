@@ -6,7 +6,7 @@ const open = ref(false)
 const links = computed(() => [
   { label: t('nav.product'), href: `${localePath('/')}#product` },
   { label: t('nav.tasks'), href: localePath('/task-management') },
-  { label: t('nav.boards'), href: localePath('/kanban-boards') },
+  { label: t('nav.compare'), href: localePath('/compare') },
   { label: t('nav.pricing'), href: `${localePath('/')}#pricing` },
 ])
 watch(() => route.fullPath, () => { open.value = false })
