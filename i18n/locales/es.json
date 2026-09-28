@@ -23,7 +23,7 @@
     ] },
     "showcase": { "kicker": "MIRA DE CERCA", "title": "Tu proyecto", "emphasis": "de un vistazo.", "text": "Este es un tablero real de Denalify. Sus columnas muestran tareas pendientes, en curso y terminadas, con prioridades, fechas y listas de control.", "alt": "Tablero Kanban de Denalify con columnas, prioridades y fechas", "screen": "CAPTURA DEL PRODUCTO", "view": "TABLERO CLÁSICO / DENALIFY" },
     "community": { "kicker": "CREADO CONTIGO", "title": "Un producto que", "emphasis": "escucha.", "text": "Construimos Denalify con los equipos que lo usan. Cuéntanos qué frena tu trabajo y qué deberíamos crear después. Tus ideas guían el desarrollo.", "link": "Comparte una idea" },
-    "pricing": { "title": "Empieza poco a poco.", "emphasis": "Construye algo grande.", "text": "Prueba Denalify con un espacio gratuito. Invita a tu equipo y elige un plan de pago cuando necesites más capacidad.", "free": "ESPACIO GRATUITO", "unit": "para empezar", "benefits": ["Hasta 35 miembros", "3 proyectos y 1 GB de almacenamiento", "Tableros, tareas e integración con Discord"], "try": "Pruébalo tú mismo" },
+    "pricing": { "title": "Empieza poco a poco.", "emphasis": "Construye algo grande.", "text": "Prueba Denalify con un espacio gratuito. Invita a tu equipo y elige un plan de pago cuando necesites más capacidad.", "free": "ESPACIO GRATUITO", "unit": "para empezar", "benefits": ["Hasta 10 miembros", "3 proyectos y 1 GB de almacenamiento", "Tableros, tareas e integración con Discord"], "try": "Pruébalo tú mismo" },
     "newsletter": { "kicker": "BOLETÍN DE DENALIFY", "title": "Descubre qué viene después.", "text": "Recibe noticias del lanzamiento, novedades prácticas y un adelanto de lo que creamos. Sin ruido y con baja en un clic." }
   },
   "task": {

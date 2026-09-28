@@ -23,7 +23,7 @@
     ] },
     "showcase": { "kicker": "A CLOSER LOOK", "title": "See your project", "emphasis": "at a glance.", "text": "This is an actual Denalify board. Columns show what is to do, in progress and done; each card keeps a task’s priority, due date and checklist progress close.", "alt": "Denalify Kanban board with task columns, priorities and due dates", "screen": "ACTUAL PRODUCT SCREEN", "view": "CLASSIC BOARD VIEW / DENALIFY" },
     "community": { "kicker": "BUILT WITH YOU", "title": "A product that", "emphasis": "listens back.", "text": "Denalify is being built around the teams who use it. Tell us what slows you down, what helps you move, and what we should build next. Your feedback shapes the roadmap.", "link": "Share an idea" },
-    "pricing": { "title": "Start small.", "emphasis": "Build something big.", "text": "Try Denalify with a free workspace. Bring your team in and choose a paid plan when you need more room.", "free": "FREE WORKSPACE", "unit": "to get started", "benefits": ["Up to 35 members", "3 projects and 1 GB storage", "Boards, tasks and Discord integration"], "try": "See it for yourself" },
+    "pricing": { "title": "Start small.", "emphasis": "Build something big.", "text": "Try Denalify with a free workspace. Bring your team in and choose a paid plan when you need more room.", "free": "FREE WORKSPACE", "unit": "to get started", "benefits": ["Up to 10 members", "3 projects and 1 GB storage", "Boards, tasks and Discord integration"], "try": "See it for yourself" },
     "newsletter": { "kicker": "THE DENALIFY NEWSLETTER", "title": "See what’s next for Denalify.", "text": "Get launch news, practical product updates and a short look at what we’re building next. No noise, and you can leave with one click." }
   },
   "pricing": {

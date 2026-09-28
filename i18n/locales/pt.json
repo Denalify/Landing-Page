@@ -23,7 +23,7 @@
     ] },
     "showcase": { "kicker": "VEJA DE PERTO", "title": "O seu projeto", "emphasis": "num relance.", "text": "Este é um quadro real da Denalify. As colunas mostram tarefas por fazer, em curso e concluídas, com prioridades, prazos e listas de verificação.", "alt": "Quadro Kanban Denalify com colunas, prioridades e prazos", "screen": "ECRÃ REAL DO PRODUTO", "view": "QUADRO CLÁSSICO / DENALIFY" },
     "community": { "kicker": "CRIADO CONSIGO", "title": "Um produto que", "emphasis": "ouve.", "text": "Desenvolvemos a Denalify com as equipas que a usam. Diga-nos o que dificulta o trabalho e o que devemos criar a seguir. As suas ideias orientam o futuro do produto.", "link": "Partilhe uma ideia" },
-    "pricing": { "title": "Comece pequeno.", "emphasis": "Construa algo grande.", "text": "Experimente a Denalify num espaço gratuito. Convide a equipa e escolha um plano pago quando precisar de mais.", "free": "ESPAÇO GRATUITO", "unit": "para começar", "benefits": ["Até 35 membros", "3 projetos e 1 GB de armazenamento", "Quadros, tarefas e integração com Discord"], "try": "Experimente" },
+    "pricing": { "title": "Comece pequeno.", "emphasis": "Construa algo grande.", "text": "Experimente a Denalify num espaço gratuito. Convide a equipa e escolha um plano pago quando precisar de mais.", "free": "ESPAÇO GRATUITO", "unit": "para começar", "benefits": ["Até 10 membros", "3 projetos e 1 GB de armazenamento", "Quadros, tarefas e integração com Discord"], "try": "Experimente" },
     "newsletter": { "kicker": "NEWSLETTER DENALIFY", "title": "Saiba o que vem a seguir.", "text": "Receba notícias do lançamento, atualizações úteis e uma antecipação das próximas funções. Sem ruído, com cancelamento num clique." }
   },
   "task": {
