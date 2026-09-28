@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ pageKey: 'nonprofit' | 'securityPage' | 'nis2'; contactSubject: string }>()
+const props = defineProps<{ pageKey: 'nonprofit' | 'agency' | 'securityPage' | 'nis2'; contactSubject: string }>()
 const { t } = useI18n()
 const key = (suffix: string) => t(`${props.pageKey}.${suffix}`)
 const contactHref = computed(() => `mailto:contact@denalify.com?subject=${encodeURIComponent(props.contactSubject)}`)
