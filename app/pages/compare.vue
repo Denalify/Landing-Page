@@ -5,7 +5,7 @@ const competitors = ['Denalify', 'Asana', 'ClickUp', 'Trello', 'monday.com', 'Li
 const rows = [
   ['billing', 'flat', 'perUser', 'perUser', 'perUser', 'perSeat', 'perUser'],
   ['team25', '€12 / €39 / €99', '$275 / $625', '$300', '$250', '€300 / €475', '$400'],
-  ['free', '10', '2', 'unlimited', '10', '2', 'limited'],
+  ['free', '10', '2', 'unlimited', '10', '2', 'unlimited'],
   ['timeGoals', 'included', 'advanced', 'included', 'missing', 'pro', 'partial'],
   ['audit', 'proTeam', 'enterprise', 'enterprise', 'enterprise', 'enterprise', 'enterprise'],
   ['whiteLabel', 'team', 'missing', 'enterprise', 'missing', 'missing', 'missing'],
