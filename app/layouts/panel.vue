@@ -6,6 +6,7 @@ const links = [
   { to: '/panel', label: 'Overview', icon: '⌂' },
   { to: '/panel/newsletter', label: 'Newsletter', icon: '✉' },
   { to: '/panel/users', label: 'App users', icon: '◎' },
+  { to: '/panel/organizations', label: 'Organizations', icon: '▦' },
 ]
 
 function isActive(path: string) {

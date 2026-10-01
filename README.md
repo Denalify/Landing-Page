@@ -1,6 +1,6 @@
 # Denalify landing page
 
-Nuxt 4 site for Denalify. The public pages are `/`, `/task-management`, `/kanban-boards`, `/privacy`, `/cookies`, `/terms`, `/refund-policy`, `/acceptable-use`, `/support`, `/pay`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates and a read-only app-user list.
+Nuxt 4 site for Denalify. The public pages are `/`, `/task-management`, `/kanban-boards`, `/privacy`, `/cookies`, `/terms`, `/refund-policy`, `/acceptable-use`, `/support`, `/pay`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates, a read-only app-user list and an organization list where a plan can be granted free of charge.
 
 ## Run locally
 
@@ -15,6 +15,7 @@ npm run dev
 
 - `DATABASE_URL` — PostgreSQL database for newsletter tables (created lazily).
 - `APP_DATABASE_URL` — optional read-only PostgreSQL connection to the application database. If omitted, `DATABASE_URL` is checked for the `users` table.
+- `APP_API_URL`, `APP_ADMIN_SECRET` — origin of the application API (defaults to `https://api.denalify.com`) and the value of its `ADMIN_SECRET`. The panel uses them to grant or remove a plan; the database connection stays read-only.
 - `ADMIN_USERNAME`, `ADMIN_PASSWORD` — panel credentials. The password must contain at least 12 characters.
 - `SESSION_SECRET` — random secret of at least 32 characters.
 - `ADMIN_TOTP_SECRET` — optional Base32 secret enabling authenticator-app 2FA for the panel.

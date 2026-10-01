@@ -110,6 +110,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL ?? '',
     appDatabaseUrl: process.env.APP_DATABASE_URL ?? '',
+    appApiUrl: process.env.APP_API_URL ?? 'https://api.denalify.com',
+    appAdminSecret: process.env.APP_ADMIN_SECRET ?? '',
     adminUsername: process.env.ADMIN_USERNAME ?? '',
     adminPassword: process.env.ADMIN_PASSWORD ?? '',
     adminTotpSecret: process.env.ADMIN_TOTP_SECRET ?? '',
