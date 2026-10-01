@@ -18,7 +18,7 @@ const requestHref = 'mailto:contact@denalify.com?subject=Denalify%20DPA%20reques
     eyebrow="LEGAL / DPA"
     title="Data Processing Agreement"
     introduction="The terms that apply when Denalify processes personal data on a customer’s behalf."
-    updated="Template updated: 28 September 2026"
+    updated="Template updated: 1 October 2026"
   >
     <div class="legal-notice">
       <p><strong>This page is a review template, not an automatically executed agreement.</strong> To identify the customer, effective date and authorized signatories, <a :href="requestHref">request an executable copy</a>. Your legal team should review it for your use case.</p>
@@ -59,7 +59,7 @@ const requestHref = 'mailto:contact@denalify.com?subject=Denalify%20DPA%20reques
       <li><strong>Hetzner Online GmbH — European Union:</strong> infrastructure hosting for the application, database and self-hosted email service.</li>
       <li><strong>Cloudflare, Inc. — EU data jurisdiction:</strong> private R2 object storage and delivery of uploaded files.</li>
     </ul>
-    <p>Stripe handles payment data under its own applicable terms. Integrations such as Google, GitHub, Discord or Slack are enabled and directed by Customer and may receive data selected by Customer.</p>
+    <p>Paddle.com handles payment data as merchant of record under its own applicable terms. Integrations such as Google, GitHub, Discord or Slack are enabled and directed by Customer and may receive data selected by Customer.</p>
 
     <h2>8. International transfers</h2>
     <p>Denalify will not transfer Customer personal data outside the EEA unless the transfer is covered by an adequacy decision or appropriate safeguards required by data-protection law. On request, Denalify will provide information about the safeguard relevant to a transfer.</p>

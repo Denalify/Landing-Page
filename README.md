@@ -1,6 +1,6 @@
 # Denalify landing page
 
-Nuxt 4 site for Denalify. The public pages are `/`, `/task-management`, `/kanban-boards`, `/privacy`, `/cookies`, `/terms`, `/acceptable-use`, `/support`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates and a read-only app-user list.
+Nuxt 4 site for Denalify. The public pages are `/`, `/task-management`, `/kanban-boards`, `/privacy`, `/cookies`, `/terms`, `/refund-policy`, `/acceptable-use`, `/support`, `/pay`, and `/unsubscribe`. The protected panel at `/panel` includes newsletter campaigns, subscribers, reusable Tiptap templates and a read-only app-user list.
 
 ## Run locally
 
@@ -22,6 +22,10 @@ npm run dev
 - `MAIL_FROM_ADDRESS`, `MAIL_FROM_NAME` — verified newsletter sender.
 - `NEWSLETTER_TEST_EMAIL` — fixed test recipient; defaults to `patrydab4@gmail.com`.
 - `NUXT_PUBLIC_SITE_URL` — public origin used in unsubscribe links; defaults to `https://denalify.com`.
+- `NUXT_PUBLIC_PADDLE_CLIENT_TOKEN` — Paddle client-side token for `/pay` (`test_...` runs the sandbox checkout, `live_...` the live one).
+- `NUXT_PUBLIC_APP_URL` — origin of the app that `/pay` returns to after checkout; defaults to `https://app.denalify.com`.
+
+`/pay` is the Paddle default payment link (**Checkout > Checkout settings**). The app creates a transaction and sends the buyer to `/pay?_ptxn=<transaction>&return=<billing path>`; Paddle.js opens that checkout and then returns the buyer to the app. Only `/dashboard/<workspace>/billing` is accepted as a return path.
 
 Do not commit credentials. Use a read-only database role for `APP_DATABASE_URL`.
 
@@ -30,7 +34,7 @@ Technical SEO is provided by `@nuxtjs/seo`: canonical URLs use `https://denalify
 ## Launch checklist
 
 - Legal pages identify Patryk Dąbrowski as the individual operator at Młyńska 5/1, 88-100 Inowrocław, Poland, with `contact@denalify.com` and +48 500 408 357. Confirm that these channels are monitored. Have the paid checkout and withdrawal flow reviewed against consumer law.
-- Privacy notice identifies Hetzner VPS hosting, a separate Hetzner VPS running Mailcow for email and Stripe for payments. Confirm the actual database and file-storage providers, transfer locations and concrete retention periods before representing those details more specifically.
+- Privacy notice identifies Hetzner VPS hosting, a separate Hetzner VPS running Mailcow for email and Paddle (merchant of record) for payments. Confirm the actual database and file-storage providers, transfer locations and concrete retention periods before representing those details more specifically.
 - Review and remove legacy waitlist IP/country data if no longer needed. New signups store email, consent, source (if supplied), subscription state and timestamps; rate limiting stores only a one-way network fingerprint.
 - Verify the SMTP sender domain (SPF, DKIM and DMARC) and send a test campaign to `patrydab4@gmail.com` before the first production campaign.
 - The landing page currently has no optional analytics or marketing cookies. If those are introduced, add a consent mechanism before loading them and update `/cookies`.

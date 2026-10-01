@@ -52,13 +52,13 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    disallow: ['/panel', '/api/'],
+    disallow: ['/panel', '/api/', '/pay'],
     blockAiBots: false,
     credits: false,
   },
 
   sitemap: {
-    exclude: ['/panel', '/panel/**', '/unsubscribe'],
+    exclude: ['/panel', '/panel/**', '/unsubscribe', '/pay'],
     zeroRuntime: true,
   },
 
@@ -124,6 +124,8 @@ export default defineNuxtConfig({
     newsletterTestEmail: process.env.NEWSLETTER_TEST_EMAIL ?? 'patrydab4@gmail.com',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL ?? 'https://denalify.com',
+      appUrl: process.env.NUXT_PUBLIC_APP_URL ?? 'https://app.denalify.com',
+      paddleClientToken: process.env.NUXT_PUBLIC_PADDLE_CLIENT_TOKEN ?? '',
     },
   },
 })

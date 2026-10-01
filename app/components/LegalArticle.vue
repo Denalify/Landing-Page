@@ -6,6 +6,7 @@ const links = computed(() => [
   { label: t('footer.privacy'), to: '/privacy' },
   { label: t('footer.cookies'), to: '/cookies' },
   { label: t('footer.terms'), to: '/terms' },
+  { label: t('footer.refunds'), to: '/refund-policy' },
   { label: t('footer.acceptableUse'), to: '/acceptable-use' },
   { label: 'DPA', to: '/dpa' },
   { label: t('footer.support'), to: localePath('/support') },
